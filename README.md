@@ -1,6 +1,6 @@
 # Golang Dad Jokes API
 
-This API makes use of the [icanhazdadjoke] (https://icanhazdadjoke.com/api) API to retrieve dad jokes. The backend is written entirely in Golang and uses MongoDB as the database for storing jokes. An instance of MongoDB is stood up on Docker container. The ability to interact with the MongoDB instance comes from a mongoagent.
+This API makes use of the [icanhazdadjoke](https://icanhazdadjoke.com/api) API to retrieve dad jokes. The backend is written entirely in Golang and uses MongoDB as the database for storing jokes. An instance of MongoDB is stood up on Docker container. The ability to interact with the MongoDB instance comes from a mongoagent.
 
 When a user asks for a new random joke, the random joke is only added to the database if it isn't already in the database.
 
