@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <title>
+            Random Dad Joke Generator
+        </title>
+    </head>
+    
+    <body>
+        <h2 class="title">
+            Random Dad Joke Generator
+        </h2>
+        <div id="body-div">
+            <!-- maybe make a navbar -->
+            <h3 class="title">
+                <!-- message from home handler -->
+                <!-- how to send data directly to template -->
+                {{.Message}}
+            </h3>
+            <a href="http://localhost:8080/getJoke">Click for a random joke!</a><br/>
+            <a href="http://localhost:8080/">Click to reset the page!</a>
+
+            <hr>
+
+            <div id="forms">
+                <p>Look for a specific joke in the database:</p>
+                <form action="/findJoke" method="post" class="form">
+                    Joke ID: <input type="text" name="jokeID">
+                    <input type="submit" value="Search">
+                </form>
+                <hr>
+                <p>Delete a specific joke in the database:</p>
+                <form action="/deleteJoke" method="post" class="form">
+                    Joke ID: <input type="text" name="jokeID">
+                    <input type="submit" value="Delete">
+                </form>
+                <hr>
+                <p>Update a specific joke in the database:</p>
+                <form action="/updateJoke" method="post" class="form">
+                    Joke ID: <input type="text" name="jokeID">
+                    Updated joke: <input type="text" name="updatedJoke">
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+            
+            <hr>
+            <p><b>icanhazdadjoke API</b> <a href="https://icanhazdadjoke.com/api">documentation</a>.</p>
+
+        </div>
+    </body>
+</html>
