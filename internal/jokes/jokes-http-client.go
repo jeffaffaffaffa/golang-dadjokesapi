@@ -129,6 +129,7 @@ func (bkr Broker) RetrieveJoke() (JokeResponse, error) {
 		// then check if the error contains the new sentinel error
 		if errors.Is(err, ErrDocumentDoesntExist) {
 			_, err := bkr.InsertJoke(responseObject.ToModel())
+			fmt.Println(responseObject.ToModel())
 
 			if err != nil {
 				return JokeResponse{}, fmt.Errorf("api failed to insert joke in db; %w", err)

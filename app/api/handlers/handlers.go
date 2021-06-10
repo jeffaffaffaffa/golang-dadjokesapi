@@ -69,6 +69,8 @@ func GetJokeHandler(w http.ResponseWriter, r *http.Request) {
 	// gets the response object (JokeStructure struct from the client file)
 	responseObject, err := Broker.BrokerConstructor().RetrieveJoke()
 
+	fmt.Println(responseObject)
+
 	if err != nil {
 		fmt.Print(err.Error())
 		return

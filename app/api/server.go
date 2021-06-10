@@ -38,6 +38,7 @@ func main() {
 
 	r.HandleFunc("/", H.HomeHandler)
 
+	// two routes, one uses a form and one is with the url
 	r.HandleFunc("/findJoke/{id}", H.FindJokeByIDHandler)
 	r.HandleFunc("/findJoke", H.FindJokeHandler)
 

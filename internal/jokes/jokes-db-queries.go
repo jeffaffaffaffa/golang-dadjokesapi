@@ -107,8 +107,18 @@ func (bkr Broker) DeleteJokeByID(jokeID string) error {
 		"id": jokeID,
 	}
 
-	if deletedCount, err := bkr.mongo.DeleteOne("jokesCollection", filter); err != nil || deletedCount != 1 {
-		return fmt.Errorf("db error on delete: failed to delete joke by joke id; %s", err.Error())
+	numDocs, err := bkr.mongo.DeleteOne("jokesCollection", filter)
+
+	if err != nil {
+		return fmt.Errorf("db error on delete: failed to delete joke by id; %s", err.Error())
+	}
+
+	if numDocs != 1 {
+		if numDocs == 0 {
+			return errors.New("0 docs were deleted")
+		} else if numDocs > 1 {
+			return fmt.Errorf("%d documents were deleted, something is terribly wrong", numDocs)
+		}
 	}
 
 	return nil
